@@ -58,7 +58,7 @@ jobs:
           if [[ -n "${LATEST_SCAN_ID:-}" ]]; then
             LATEST_SCAN_DATA=$(probely scans get \
               --api-key "$PROBELY_API_KEY" \
-              -o JSON | jq -r ".results[] | select(.id==\"$LATEST_SCAN_ID\")")
+              -o JSON | jq -r "[] | select(.id==\"$LATEST_SCAN_ID\")")
           else
             # Fallback: get the most recent scan
             LATEST_SCAN_DATA=$(probely scans get \
